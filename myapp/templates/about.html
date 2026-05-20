@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | ICGB 2026</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f6f9fd;
+      color: #172033;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(19, 42, 74, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .logo {
+      color: #0056b3;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: #004aad;
+      color: #ffffff;
+    }
+
+    .hero {
+      min-height: 560px;
+      display: grid;
+      align-items: end;
+      padding: 80px 60px;
+      color: #ffffff;
+      background:
+        linear-gradient(120deg, rgba(0, 34, 78, 0.94), rgba(0, 90, 118, 0.72)),
+        url("https://mkuniversity.ac.in/new/school/sbs/images/slider/sbs.jpg") center/cover;
+    }
+
+    .hero-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: #9be8ff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: 52px;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: #e9f8ff;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 42px;
+      max-width: 960px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 8px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: #d9f5ff;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 64px 0 76px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      color: #004aad;
+      font-size: 34px;
+      line-height: 1.18;
+    }
+
+    .section-head p {
+      max-width: 520px;
+      color: #627086;
+      line-height: 1.7;
+    }
+
+    .institution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-bottom: 58px;
+    }
+
+    .institution-card {
+      background: #ffffff;
+      border: 1px solid #dfe9f3;
+      border-radius: 8px;
+      padding: 26px;
+      box-shadow: 0 18px 44px rgba(18, 42, 76, 0.08);
+    }
+
+    .institution-card span {
+      color: #0b8aa8;
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .institution-card h3 {
+      color: #172033;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .institution-card p {
+      color: #627086;
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .program-strip {
+      background: #092f57;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 34px;
+      margin-bottom: 58px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      box-shadow: 0 22px 50px rgba(0, 55, 110, 0.18);
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 58px;
+    }
+
+    .detail-card {
+      background: #ffffff;
+      border: 1px solid #dfe9f3;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 16px 38px rgba(18, 42, 76, 0.08);
+    }
+
+    .detail-card span {
+      color: #0b8aa8;
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .detail-card h3 {
+      color: #172033;
+      font-size: 20px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .detail-card p {
+      color: #627086;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .program-strip h2 {
+      font-size: 30px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .program-strip p {
+      color: #d8f5ff;
+      line-height: 1.7;
+    }
+
+    .focus-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .focus-list li {
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #7de2b8;
+      border-radius: 6px;
+      color: #effcff;
+      font-weight: 700;
+    }
+
+    .leadership {
+      margin-bottom: 58px;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .role-card {
+      background: #ffffff;
+      border: 1px solid #dfe9f3;
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 16px 38px rgba(18, 42, 76, 0.08);
+    }
+
+    .role {
+      color: #0056b3;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 11px;
+    }
+
+    .role-card h3 {
+      color: #172033;
+      font-size: 20px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .role-card p {
+      color: #657287;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .committee-panel {
+      background: #ffffff;
+      border: 1px solid #dfe9f3;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 18px 44px rgba(18, 42, 76, 0.08);
+    }
+
+    .committee-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      list-style: none;
+      margin-top: 22px;
+    }
+
+    .committee-list li {
+      padding: 13px 14px;
+      background: #f4f8fb;
+      border-radius: 6px;
+      color: #23334d;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid #e3edf7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      background: #111827;
+      color: #ffffff;
+    }
+
+    @media (max-width: 980px) {
+      nav {
+        padding: 18px 20px;
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .nav-links a {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .hero {
+        padding: 64px 24px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .stats,
+      .institution-grid,
+      .details-grid,
+      .program-strip,
+      .role-grid,
+      .committee-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 12px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        min-height: 520px;
+        padding: 48px 18px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .stats,
+      .institution-grid,
+      .details-grid,
+      .program-strip,
+      .role-grid,
+      .committee-list {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        width: min(100% - 22px, 1180px);
+        padding-top: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">ICGB 2026</div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="impdates.html">Dates</a></li>
+        <li><a href="speakerslist.html">Speakers</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Madurai Kamaraj University</div>
+      <h1>Academic leadership for biological science with global research ambition.</h1>
+      <p>{{ content.about_hero|default:"ICGB 2026 is hosted within the School of Biological Sciences at Madurai Kamaraj University, a NAAC A++ accredited institution with a strong record in advanced biological research, postgraduate training, and scientific collaboration." }}</p>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>A++</strong>
+          <span>NAAC re-accredited university</span>
+        </div>
+        <div class="stat">
+          <strong>50+</strong>
+          <span>Years of higher education impact</span>
+        </div>
+        <div class="stat">
+          <strong>CAS</strong>
+          <span>Advanced studies in functional genomics</span>
+        </div>
+        <div class="stat">
+          <strong>CEGS</strong>
+          <span>Potential for excellence in genomic sciences</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="page">
+    <section>
+      <div class="section-head">
+        <h2>Institutional Strength</h2>
+        <p>{{ content.institution_intro|default:"A concise view of the university, school, and department behind the conference." }}</p>
+      </div>
+
+      <div class="institution-grid">
+        <article class="institution-card">
+          <span>University</span>
+          <h3>Madurai Kamaraj University</h3>
+          <p>{{ content.university_summary|default:"A public university known for postgraduate education, research culture, and academic access for students across social backgrounds." }}</p>
+        </article>
+
+        <article class="institution-card">
+          <span>School</span>
+          <h3>School of Biological Sciences</h3>
+          <p>{{ content.school_summary|default:"An eminent school supported through UGC programmes including DRS, DSA, CAS, CEGS, and NRCBS." }}</p>
+        </article>
+
+        <article class="institution-card">
+          <span>Department</span>
+          <h3>Microbial Technology</h3>
+          <p>{{ content.department_summary|default:"A department focused on research, teaching, mentoring, and advanced biological approaches in microbial and non-microbial systems." }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="conference-details">
+      <div class="section-head">
+        <h2>Conference Details</h2>
+        <p>ICGB 2026 is planned as a focused academic gathering for biological science, genomics, biotechnology, microbial technology, and allied research areas.</p>
+      </div>
+
+      <div class="details-grid">
+        <article class="detail-card">
+          <span>Theme</span>
+          <h3>Genomics and Biology</h3>
+          <p>Sessions will highlight current research directions in life sciences, molecular biology, microbial systems, biotechnology, and computational approaches.</p>
+        </article>
+
+        <article class="detail-card">
+          <span>Participants</span>
+          <h3>Students and Faculty</h3>
+          <p>The conference welcomes research scholars, postgraduate students, faculty members, academicians, and industry professionals.</p>
+        </article>
+
+        <article class="detail-card">
+          <span>Format</span>
+          <h3>Talks and Presentations</h3>
+          <p>The program includes keynote lectures, oral presentations, poster sessions, expert interaction, and opportunities for research networking.</p>
+        </article>
+
+        <article class="detail-card">
+          <span>Includes</span>
+          <h3>Kit and Certificate</h3>
+          <p>Registered participants receive conference materials, participation certification, refreshments, lunch, and access to scheduled academic sessions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="program-strip">
+      <div>
+        <div class="eyebrow">Conference Focus</div>
+        <h2>Scientific exchange with a clear academic purpose.</h2>
+        <p>{{ content.conference_focus|default:"The conference brings together students, research scholars, faculty, academicians, and industry participants for scientific sessions, presentations, and expert interaction." }}</p>
+      </div>
+
+      <ul class="focus-list">
+        <li>Keynote addresses by national and international experts</li>
+        <li>Oral and poster presentation tracks</li>
+        <li>Research-focused student participation</li>
+        <li>Conference kit, certification, refreshments, and lunch</li>
+      </ul>
+    </section>
+
+    <section class="leadership">
+      <div class="section-head">
+        <h2>Conference Leadership</h2>
+        <p>Names and responsibilities only, arranged for fast scanning and administrative clarity.</p>
+      </div>
+
+      <div class="role-grid">
+        {% for leader in leaders %}
+          <article class="role-card">
+            <div class="role">{{ leader.get_role_display|default:leader.role_label }}</div>
+            <h3>{{ leader.name }}</h3>
+            <p>{{ leader.designation }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="committee-panel">
+      <div class="section-head">
+        <h2>Organising Committee</h2>
+        <p>Working members supporting the conference execution.</p>
+      </div>
+
+      <ul class="committee-list">
+        {% for member in committee_members %}
+          <li>{{ member }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 ICGB | Madurai Kamaraj University</p>
+  </footer>
+</body>
+</html>

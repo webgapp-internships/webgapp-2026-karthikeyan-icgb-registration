@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICGB 2026 | MKU</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f7f9fc;
+      color:#222;
+    }
+
+ nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:white;
+}
+
+.logo{
+  color:#004aad;
+  font-size:24px;
+  font-weight:bold;
+}
+
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:20px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#333;
+  padding:10px 15px;
+  border-radius:8px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  background:#eef4ff;
+  color:#004aad;
+}
+
+.nav-links a.active{
+  background:#004aad;
+  color:white;
+}
+    .logo{
+      color:#0056b3;
+    }
+
+    .nav-links{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#333;
+      font-weight:bold;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 24px;
+      border:none;
+      border-radius:8px;
+      background:#0056b3;
+      color:white;
+      cursor:pointer;
+      text-decoration:none;
+    }
+
+    /* HERO */
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:80px;
+    }
+
+    .hero-text{
+      width:50%;
+    }
+
+    .hero-text h1{
+      font-size:48px;
+      margin-bottom:20px;
+      color:#0056b3;
+    }
+
+    .hero-text p{
+      margin-bottom:25px;
+      line-height:1.6;
+      color:#666;
+    }
+
+    .hero-image img{
+      width:500px;
+      border-radius:20px;
+    }
+
+    /* FEATURES */
+    .features{
+      text-align:center;
+      padding:80px;
+    }
+
+    .cards{
+      display:flex;
+      gap:30px;
+      margin-top:40px;
+      justify-content:center;
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      width:250px;
+      border-radius:15px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    /* INFO */
+    .about{
+      display:flex;
+      justify-content:space-around;
+      padding:70px;
+      background:white;
+      text-align:center;
+    }
+
+    .about h2{
+      color:#0056b3;
+      font-size:35px;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#111;
+      color:white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header>
+   <nav>
+  <div class="logo">ICGB 2026</div>
+
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="impdates.html">Dates</a></li>
+    <li><a href="speakerslist.html">Speakers</a></li>
+    <li><a href="register.html">Register</a></li>
+  </ul>
+</nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>International Conference on Genomics & Biology</h1>
+      <p>
+        Hosted at Madurai Kamaraj University (MKU).  
+        Join researchers, students, and innovators exploring the future of biological science.
+      </p>
+      <a class="btn" href="about.html#conference-details">View Details</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://mkuniversity.ac.in/new/school/sbs/images/slider/sbs.jpg" >
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="features">
+    <h2>Conference Highlights</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Keynote Talks</h3>
+        <p>Leading scientists sharing groundbreaking research.</p>
+      </div>
+
+      <div class="card">
+        <h3>Workshops</h3>
+        <p>Hands-on sessions for students and professionals.</p>
+      </div>
+
+      <div class="card">
+        <h3>Networking</h3>
+        <p>Connect with experts and future collaborators.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="about">
+    <div>
+      <h2>500+</h2>
+      <p>Participants</p>
+    </div>
+
+    <div>
+      <h2>30+</h2>
+      <p>Speakers</p>
+    </div>
+
+    <div>
+      <h2>3 Days</h2>
+      <p>Conference Duration</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 ICGB | Madurai Kamaraj University</p>
+  </footer>
+
+</body>
+</html>

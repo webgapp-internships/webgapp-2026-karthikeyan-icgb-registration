@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | ICGB 2026</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #f4f8fb;
+      color: #172033;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(19, 42, 74, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      color: #0056b3;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: #0056b3;
+      color: #ffffff;
+    }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 54px 0 70px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: stretch;
+      margin-bottom: 34px;
+    }
+
+    .hero-copy {
+      min-height: 390px;
+      padding: 52px;
+      border-radius: 8px;
+      color: #ffffff;
+      background:
+        linear-gradient(120deg, rgba(0, 47, 95, 0.92), rgba(0, 103, 128, 0.74)),
+        url("https://mkuniversity.ac.in/new/school/sbs/images/slider/sbs.jpg") center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 22px 50px rgba(0, 55, 110, 0.18);
+    }
+
+    .eyebrow {
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      color: #9be8ff;
+      margin-bottom: 14px;
+    }
+
+    .hero-copy h1 {
+      font-size: 42px;
+      line-height: 1.12;
+      margin-bottom: 16px;
+      max-width: 720px;
+    }
+
+    .hero-copy p {
+      color: #e8f7ff;
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 720px;
+    }
+
+    .event-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 34px;
+      box-shadow: 0 20px 46px rgba(18, 42, 76, 0.1);
+      border: 1px solid #dfe9f3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .event-panel h2,
+    .form-card h2,
+    .booking-card h2 {
+      color: #004aad;
+      margin-bottom: 14px;
+    }
+
+    .event-panel p {
+      color: #647084;
+      line-height: 1.6;
+    }
+
+    .quick-facts {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .fact {
+      padding: 15px;
+      background: #f4f8fb;
+      border-left: 4px solid #0b8aa8;
+      border-radius: 6px;
+    }
+
+    .fact strong {
+      display: block;
+      color: #172033;
+      margin-bottom: 4px;
+    }
+
+    .registration-grid,
+    .booking-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .form-card,
+    .pricing-card,
+    .booking-card,
+    .help-card {
+      background: #ffffff;
+      border: 1px solid #dfe9f3;
+      border-radius: 8px;
+      box-shadow: 0 18px 44px rgba(18, 42, 76, 0.09);
+    }
+
+    .form-card,
+    .booking-card {
+      padding: 34px;
+    }
+
+    .form-card p,
+    .booking-card p {
+      color: #667386;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 700;
+      color: #23334d;
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #cdd9e6;
+      border-radius: 8px;
+      padding: 13px 14px;
+      font-size: 15px;
+      color: #172033;
+      background: #fbfdff;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #007c9d;
+      box-shadow: 0 0 0 4px rgba(0, 124, 157, 0.12);
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .choice-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .choice {
+      border: 1px solid #cdd9e6;
+      border-radius: 8px;
+      padding: 16px;
+      cursor: pointer;
+      background: #fbfdff;
+      transition: 0.2s;
+    }
+
+    .choice input {
+      width: auto;
+      margin-right: 8px;
+      accent-color: #0056b3;
+    }
+
+    .choice span {
+      font-weight: 700;
+      color: #172033;
+    }
+
+    .choice small {
+      display: block;
+      margin: 7px 0 0 26px;
+      color: #647084;
+      line-height: 1.45;
+    }
+
+    .choice:has(input:checked) {
+      border-color: #0056b3;
+      background: #eef6ff;
+      box-shadow: 0 10px 24px rgba(0, 86, 179, 0.11);
+    }
+
+    .pricing-card {
+      overflow: hidden;
+      position: sticky;
+      top: 96px;
+    }
+
+    .pricing-head {
+      padding: 26px;
+      background: #092f57;
+      color: #ffffff;
+    }
+
+    .pricing-head p {
+      color: #bfe9f2;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .price-list {
+      padding: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid #e8eef5;
+    }
+
+    .price-item:last-child {
+      border-bottom: none;
+    }
+
+    .price-item strong {
+      color: #172033;
+    }
+
+    .price-item span {
+      color: #0056b3;
+      font-size: 20px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .note {
+      padding: 18px 24px 24px;
+      color: #647084;
+      font-size: 14px;
+      line-height: 1.6;
+      background: #f7fbff;
+    }
+
+    .teacher-extra,
+    .booking-section,
+    .success-panel {
+      display: none;
+    }
+
+    .teacher-extra.show,
+    .booking-section.show,
+    .success-panel.show {
+      display: block;
+    }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    .red-carpet-entry {
+      position: relative;
+      margin-top: 32px;
+      padding: 30px;
+      overflow: hidden;
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(9, 47, 87, 0.96), rgba(11, 76, 111, 0.88)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 18px);
+      box-shadow: 0 22px 48px rgba(9, 47, 87, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      isolation: isolate;
+    }
+
+    .red-carpet-entry::before {
+      content: "";
+      position: absolute;
+      left: 18%;
+      right: 18%;
+      top: -18px;
+      bottom: -22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.22), transparent 18%),
+        linear-gradient(90deg, #7c0711, #c81323 45%, #ef4351 50%, #c81323 55%, #7c0711);
+      transform: perspective(420px) rotateX(18deg);
+      transform-origin: top;
+      z-index: -1;
+      box-shadow: inset 0 0 26px rgba(70, 0, 0, 0.42);
+    }
+
+    .red-carpet-entry::after {
+      content: "";
+      position: absolute;
+      inset: 14px 22px;
+      border-left: 4px solid rgba(225, 232, 239, 0.8);
+      border-right: 4px solid rgba(225, 232, 239, 0.8);
+      pointer-events: none;
+    }
+
+    .entry-lights {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 8% 22%, rgba(255,255,255,0.34) 0 3px, transparent 4px),
+        radial-gradient(circle at 92% 28%, rgba(255,255,255,0.32) 0 3px, transparent 4px),
+        radial-gradient(circle at 12% 74%, rgba(255,255,255,0.22) 0 3px, transparent 4px),
+        radial-gradient(circle at 88% 70%, rgba(255,255,255,0.24) 0 3px, transparent 4px);
+      pointer-events: none;
+    }
+
+    .entry-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .entry-kicker {
+      color: #bfe9f2;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .entry-content h3 {
+      color: #ffffff;
+      font-size: 24px;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .entry-content p {
+      color: #d8f5ff;
+      margin: 0;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .red-carpet-btn {
+      min-width: 218px;
+      background: linear-gradient(135deg, #ffffff, #f5d78c);
+      color: #6f0710;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .red-carpet-btn:hover {
+      background: linear-gradient(135deg, #fff7d8, #e9bd4f);
+      color: #52040b;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 14px 22px;
+      background: #0056b3;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    button:hover {
+      background: #003f84;
+      transform: translateY(-1px);
+    }
+
+    .ghost-btn {
+      background: #e8f1fb;
+      color: #0056b3;
+    }
+
+    .ghost-btn:hover {
+      background: #d7e9fb;
+    }
+
+    .success-panel {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 8px;
+      background: #e9fbf3;
+      border: 1px solid #b7ebd0;
+      color: #135c3a;
+      line-height: 1.6;
+    }
+
+    .booking-section {
+      margin-top: 34px;
+      padding-top: 34px;
+      border-top: 1px solid #dfe9f3;
+    }
+
+    .booking-card {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
+        url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80") center/cover;
+    }
+
+    .room-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 8px 0 22px;
+    }
+
+    .room {
+      border: 1px solid #cdd9e6;
+      border-radius: 8px;
+      padding: 18px;
+      background: #ffffff;
+    }
+
+    .room input {
+      width: auto;
+      margin-right: 8px;
+      accent-color: #0056b3;
+    }
+
+    .room strong {
+      color: #172033;
+    }
+
+    .room p {
+      margin: 8px 0 0;
+      font-size: 14px;
+    }
+
+    .help-card {
+      padding: 28px;
+      background: #092f57;
+      color: #ffffff;
+    }
+
+    .help-card h3 {
+      margin-bottom: 14px;
+      font-size: 22px;
+    }
+
+    .help-card p {
+      color: #d8f5ff;
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .help-number {
+      display: block;
+      padding: 14px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.12);
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-decoration: none;
+      margin-bottom: 18px;
+    }
+
+    .hotel-features {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: #eafaff;
+    }
+
+    .hotel-features li::before {
+      content: "✓";
+      color: #7de2b8;
+      font-weight: 800;
+      margin-right: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      background: #111827;
+      color: #ffffff;
+    }
+
+    @media (max-width: 920px) {
+      nav {
+        padding: 18px 20px;
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .nav-links a {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .hero,
+      .registration-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        min-height: 340px;
+        padding: 34px;
+      }
+
+      .hero-copy h1 {
+        font-size: 34px;
+      }
+
+      .pricing-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell {
+        width: min(100% - 22px, 1180px);
+        padding-top: 26px;
+      }
+
+      .hero-copy,
+      .form-card,
+      .booking-card,
+      .event-panel {
+        padding: 24px;
+      }
+
+      .form-grid,
+      .choice-row,
+      .room-options {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy h1 {
+        font-size: 29px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">ICGB 2026</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="impdates.html">Dates</a></li>
+        <li><a href="speakerslist.html">Speakers</a></li>
+        <li><a href="register.html" class="active">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Conference Registration</div>
+        <h1>Reserve your place at ICGB 2026</h1>
+        <p>Complete your registration for the International Conference on Genomics & Biology at Madurai Kamaraj University. Select your category to view the correct fee and accommodation options.</p>
+      </div>
+
+      <aside class="event-panel">
+        <div>
+          <h2>Registration Desk</h2>
+          <p>Designed for students, teachers, researchers, and invited academic guests attending the three-day conference.</p>
+        </div>
+
+        <div class="quick-facts">
+          <div class="fact">
+            <strong>Venue</strong>
+            Madurai Kamaraj University, Madurai
+          </div>
+          <div class="fact">
+            <strong>Includes</strong>
+            Conference kit, access pass, lunch, tea, and certificate
+          </div>
+          <div class="fact">
+            <strong>Support</strong>
+            Help desk available for registration and stay assistance
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="registration-grid">
+      <div class="form-card">
+        <h2>Participant Details</h2>
+        <p>Enter your details carefully. Your profession selection updates the registration fee and, for teachers, enables accommodation booking.</p>
+
+        {% if messages %}
+          {% for message in messages %}
+            <div class="success-panel show">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+
+        <form id="registrationForm" method="post" action="{% url 'register' %}">
+          {% csrf_token %}
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email ID</label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" pattern="[0-9+\-\s]{8,18}" required>
+            </div>
+
+            <div class="field">
+              <label for="institution">Institution / Department</label>
+              <input id="institution" name="institution" type="text" placeholder="College, university, or organization">
+            </div>
+
+            <div class="field full">
+              <label>Profession</label>
+              <div class="choice-row">
+                <label class="choice">
+                  <input type="radio" name="profession" value="student" checked>
+                  <span>Student</span>
+                  <small>UG, PG, research scholars, and trainees</small>
+                </label>
+
+                <label class="choice">
+                  <input type="radio" name="profession" value="teacher">
+                  <span>Teacher</span>
+                  <small>Faculty members, lecturers, professors, and guides</small>
+                </label>
+              </div>
+            </div>
+
+            <div class="field full teacher-extra" id="teacherExtra">
+              <label>Do you need accommodation?</label>
+              <div class="choice-row">
+                <label class="choice">
+                  <input type="radio" name="accommodation" value="yes">
+                  <span>Yes, book accommodation</span>
+                  <small>Continue to hotel-style room booking after registration</small>
+                </label>
+
+                <label class="choice">
+                  <input type="radio" name="accommodation" value="no" checked>
+                  <span>No accommodation needed</span>
+                  <small>I will arrange my own stay</small>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="red-carpet-entry">
+            <div class="entry-lights"></div>
+            <div class="entry-content">
+              <div>
+                <div class="entry-kicker">Red Carpet Entry to ICGB at MKU</div>
+                <h3>Your conference welcome starts here</h3>
+                <p>Step through the MKU red carpet registration path and reserve your delegate entry.</p>
+              </div>
+
+              <div class="actions">
+                <button type="submit" class="red-carpet-btn">Enter ICGB 2026</button>
+                <button type="reset" class="ghost-btn">Clear Form</button>
+              </div>
+            </div>
+`          </div>
+        </form>
+
+        <div class="success-panel" id="successPanel"></div>
+      </div>
+
+      <aside class="pricing-card">
+        <div class="pricing-head">
+          <h2 id="priceTitle">Student Pricing</h2>
+          <p id="priceText">Reduced academic rate for student participants.</p>
+        </div>
+        <div class="price-list" id="priceList"></div>
+        <div class="note" id="priceNote">Student ID verification may be requested at the registration desk.</div>
+      </aside>
+    </section>
+
+    <section class="booking-section" id="bookingSection">
+      <div class="booking-grid">
+        <div class="booking-card">
+          <h2>Accommodation Booking</h2>
+          <p>Choose your preferred room type and stay details. Our hospitality desk will confirm availability and payment instructions.</p>
+
+          <form id="bookingForm">
+            <div class="room-options">
+              <label class="room">
+                <input type="radio" name="roomType" value="AC Room - ₹2,400 per night" checked>
+                <strong>AC Room</strong>
+                <p>Air-conditioned room with attached bath, Wi-Fi, breakfast, and campus transfer support.</p>
+              </label>
+
+              <label class="room">
+                <input type="radio" name="roomType" value="Non-AC Room - ₹1,400 per night">
+                <strong>Non-AC Room</strong>
+                <p>Comfortable non-AC room with attached bath, Wi-Fi, breakfast, and help desk access.</p>
+              </label>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="checkin">Check-in Date</label>
+                <input id="checkin" name="checkin" type="date">
+              </div>
+
+              <div class="field">
+                <label for="checkout">Check-out Date</label>
+                <input id="checkout" name="checkout" type="date">
+              </div>
+
+              <div class="field">
+                <label for="guests">Guests</label>
+                <select id="guests" name="guests">
+                  <option>1 Guest</option>
+                  <option>2 Guests</option>
+                  <option>3 Guests</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="meal">Meal Preference</label>
+                <select id="meal" name="meal">
+                  <option>Vegetarian</option>
+                  <option>Non-Vegetarian</option>
+                  <option>Vegan</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="requests">Special Requests</label>
+                <textarea id="requests" name="requests" placeholder="Arrival time, accessibility needs, room sharing preference, or other notes"></textarea>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit">Request Room Booking</button>
+            </div>
+          </form>
+
+          <div class="success-panel" id="bookingSuccess"></div>
+        </div>
+
+        <aside class="help-card">
+          <h3>Accommodation Help Desk</h3>
+          <p>For room confirmation, late arrival, campus pickup, or urgent changes, contact the hospitality coordinator.</p>
+          <a class="help-number" href="tel:+919876543210">+91 98765 43210</a>
+          <ul class="hotel-features">
+            <li>AC and Non-AC rooms available</li>
+            <li>Check-in assistance at the venue desk</li>
+            <li>Breakfast and Wi-Fi included</li>
+            <li>Nearest hotel and guest house guidance</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 ICGB | Madurai Kamaraj University</p>
+  </footer>
+
+  <script>
+    const pricing = {
+      student: {
+        title: "Student Pricing",
+        text: "Reduced academic rate for student participants.",
+        note: "Student ID verification may be requested at the registration desk.",
+        items: [
+          ["Early Bird Registration", "₹1,200"],
+          ["Regular Registration", "₹1,500"],
+          ["Spot Registration", "₹1,800"]
+        ]
+      },
+      teacher: {
+        title: "Teacher Pricing",
+        text: "Professional delegate rate for faculty and academic staff.",
+        note: "Teacher registration includes delegate materials, lunch, refreshments, and certificate.",
+        items: [
+          ["Early Bird Registration", "₹2,500"],
+          ["Regular Registration", "₹3,000"],
+          ["Spot Registration", "₹3,500"]
+        ]
+      }
+    };
+
+    const professionInputs = document.querySelectorAll("input[name='profession']");
+    const teacherExtra = document.getElementById("teacherExtra");
+    const priceTitle = document.getElementById("priceTitle");
+    const priceText = document.getElementById("priceText");
+    const priceList = document.getElementById("priceList");
+    const priceNote = document.getElementById("priceNote");
+    const registrationForm = document.getElementById("registrationForm");
+    const successPanel = document.getElementById("successPanel");
+    const bookingSection = document.getElementById("bookingSection");
+    const bookingForm = document.getElementById("bookingForm");
+    const bookingSuccess = document.getElementById("bookingSuccess");
+
+    function selectedProfession() {
+      return document.querySelector("input[name='profession']:checked").value;
+    }
+
+    function updatePricing() {
+      const type = selectedProfession();
+      const data = pricing[type];
+
+      priceTitle.textContent = data.title;
+      priceText.textContent = data.text;
+      priceNote.textContent = data.note;
+      priceList.innerHTML = data.items.map(([label, amount]) => `
+        <div class="price-item">
+          <strong>${label}</strong>
+          <span>${amount}</span>
+        </div>
+      `).join("");
+
+      teacherExtra.classList.toggle("show", type === "teacher");
+      if (type !== "teacher") {
+        bookingSection.classList.remove("show");
+      }
+    }
+
+    professionInputs.forEach((input) => {
+      input.addEventListener("change", updatePricing);
+    });
+
+    registrationForm.addEventListener("reset", () => {
+      setTimeout(() => {
+        successPanel.classList.remove("show");
+        bookingSection.classList.remove("show");
+        updatePricing();
+      }, 0);
+    });
+
+    bookingForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const roomType = new FormData(bookingForm).get("roomType");
+
+      bookingSuccess.classList.add("show");
+      bookingSuccess.innerHTML = `<strong>Accommodation request received.</strong><br>Your preference for ${roomType} has been recorded. The hospitality team will call you with confirmation details.`;
+    });
+
+    updatePricing();
+  </script>
+</body>
+</html>
