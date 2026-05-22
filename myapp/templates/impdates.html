@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Important Dates | ICGB 2026</title>
+  <title>Important Dates | ICGB 2027</title>
 
   <style>
     * {
@@ -377,7 +377,7 @@
 <body>
   <header>
     <nav>
-      <div class="logo">ICGB 2026</div>
+      <div class="logo">ICGB 2027</div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -393,12 +393,12 @@
       <div>
         <div class="eyebrow">Conference Calendar</div>
         <h1>Every deadline, session, and conference milestone in one executive view.</h1>
-        <p>{{ content.dates_hero|default:"Track registration, abstract submission, presentation dates, and the main conference day with a clear academic schedule." }}</p>
+        <p>Track registration, abstract submission, presentation dates, and the main conference day with a clear academic schedule.</p>
       </div>
 
       <aside class="date-tile">
         <strong>31</strong>
-        <span>October 2025<br>Main conference day<br>10:00 AM - 05:30 PM IST</span>
+        <span>October 2027<br>Main conference day<br>10:00 AM - 05:30 PM IST</span>
       </aside>
     </div>
   </section>
@@ -415,25 +415,69 @@
           <h3>At a Glance</h3>
           <p>Use this quick list to track the most urgent deadlines before the conference.</p>
           <ul class="quick-list">
-            {% for item in important_dates %}
-              <li>{{ item.title }} <span>{{ item.day }} {{ item.month|slice:":3" }}</span></li>
-            {% endfor %}
+            <li>Abstract closes <span>27 Oct</span></li>
+            <li>Acceptance notice <span>28 Oct</span></li>
+            <li>Oral presentation <span>29 Oct</span></li>
+            <li>Registration closes <span>30 Oct</span></li>
+            <li>Conference day <span>31 Oct</span></li>
           </ul>
         </aside>
 
         <div class="milestones">
-          {% for item in important_dates %}
-            <article class="milestone">
-              <div class="date-box">
-                <strong>{{ item.day }}</strong>
-                <span>{{ item.month }}</span>
-              </div>
-              <div>
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.description }}</p>
-              </div>
-            </article>
-          {% endfor %}
+          <article class="milestone">
+            <div class="date-box">
+              <strong>27</strong>
+              <span>October 2027</span>
+            </div>
+            <div>
+              <h3>Abstract Submission Deadline</h3>
+              <p>Final date for submitting original research abstracts related to the conference theme.</p>
+            </div>
+          </article>
+
+          <article class="milestone">
+            <div class="date-box">
+              <strong>28</strong>
+              <span>October 2027</span>
+            </div>
+            <div>
+              <h3>Abstract Acceptance Intimation</h3>
+              <p>Selected presenters receive confirmation for oral or poster presentation participation.</p>
+            </div>
+          </article>
+
+          <article class="milestone">
+            <div class="date-box">
+              <strong>29</strong>
+              <span>October 2027</span>
+            </div>
+            <div>
+              <h3>Online Oral Presentation</h3>
+              <p>Oral presentation session for selected participants in virtual mode.</p>
+            </div>
+          </article>
+
+          <article class="milestone">
+            <div class="date-box">
+              <strong>30</strong>
+              <span>October 2027</span>
+            </div>
+            <div>
+              <h3>Registration Deadline</h3>
+              <p>Last date for participant registration and payment confirmation.</p>
+            </div>
+          </article>
+
+          <article class="milestone">
+            <div class="date-box">
+              <strong>31</strong>
+              <span>October 2027</span>
+            </div>
+            <div>
+              <h3>Main Conference and Poster Presentation</h3>
+              <p>Offline conference sessions, expert talks, poster presentation, certification, lunch, and delegate interaction at CVR Hall, School of Biological Sciences, MKU.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -467,7 +511,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 ICGB | Madurai Kamaraj University</p>
+    <p>&copy; 2027 ICGB | Madurai Kamaraj University</p>
   </footer>
 </body>
 </html>

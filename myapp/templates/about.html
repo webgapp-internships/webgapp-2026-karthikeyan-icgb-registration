@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | ICGB 2026</title>
+  <title>About | ICGB 2027</title>
 
   <style>
     * {
@@ -58,14 +58,14 @@
     }
 
     .hero {
-      min-height: 560px;
+      min-height: 600px;
+      color: #ffffff;
       display: grid;
       align-items: end;
       padding: 80px 60px;
-      color: #ffffff;
       background:
-        linear-gradient(120deg, rgba(0, 34, 78, 0.94), rgba(0, 90, 118, 0.72)),
-        url("https://mkuniversity.ac.in/new/school/sbs/images/slider/sbs.jpg") center/cover;
+        linear-gradient(90deg, rgba(4, 23, 49, 0.86), rgba(4, 23, 49, 0.38)),
+        url("/static/myapp/images/mku-main-arch.png") center/cover;
     }
 
     .hero-inner {
@@ -83,51 +83,115 @@
     }
 
     h1 {
-      max-width: 900px;
+      max-width: 840px;
       font-size: 52px;
       line-height: 1.08;
       margin-bottom: 18px;
     }
 
     .hero p {
-      max-width: 760px;
-      color: #e9f8ff;
+      max-width: 720px;
+      color: #e8f7ff;
       font-size: 18px;
       line-height: 1.75;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 42px;
-      max-width: 960px;
-    }
-
-    .stat {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 8px;
-      padding: 20px;
-      backdrop-filter: blur(12px);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 30px;
-      margin-bottom: 6px;
-    }
-
-    .stat span {
-      color: #d9f5ff;
-      font-size: 14px;
-      line-height: 1.45;
     }
 
     .page {
       width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 64px 0 76px;
+      padding: 58px 0 76px;
+    }
+
+    .image-story {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 58px;
+    }
+
+    .story-copy {
+      background: #ffffff;
+      border: 1px solid #dfe9f3;
+      border-radius: 8px;
+      padding: 34px;
+      box-shadow: 0 18px 44px rgba(18, 42, 76, 0.08);
+    }
+
+    .story-copy h2,
+    .section-head h2 {
+      color: #004aad;
+      font-size: 34px;
+      line-height: 1.18;
+      margin-bottom: 16px;
+    }
+
+    .story-copy p,
+    .section-head p {
+      color: #627086;
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    .image-stack {
+      display: grid;
+      grid-template-rows: 1fr 0.72fr;
+      gap: 16px;
+    }
+
+    .image-card {
+      position: relative;
+      min-height: 210px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 18px 44px rgba(18, 42, 76, 0.1);
+      background: #dfe9f3;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-card span {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      background: rgba(9, 47, 87, 0.9);
+      color: #ffffff;
+      padding: 10px 13px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 58px;
+    }
+
+    .metric {
+      background: #092f57;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 18px 44px rgba(18, 42, 76, 0.1);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .metric span {
+      color: #d8f5ff;
+      line-height: 1.45;
+      font-size: 14px;
     }
 
     .section-head {
@@ -135,172 +199,57 @@
       justify-content: space-between;
       gap: 28px;
       align-items: end;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
-    .section-head h2 {
-      color: #004aad;
-      font-size: 34px;
-      line-height: 1.18;
-    }
-
-    .section-head p {
-      max-width: 520px;
-      color: #627086;
-      line-height: 1.7;
-    }
-
-    .institution-grid {
+    .people-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 16px;
       margin-bottom: 58px;
     }
 
-    .institution-card {
-      background: #ffffff;
-      border: 1px solid #dfe9f3;
-      border-radius: 8px;
-      padding: 26px;
-      box-shadow: 0 18px 44px rgba(18, 42, 76, 0.08);
-    }
-
-    .institution-card span {
-      color: #0b8aa8;
-      display: block;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .institution-card h3 {
-      color: #172033;
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .institution-card p {
-      color: #627086;
-      line-height: 1.65;
-      font-size: 15px;
-    }
-
-    .program-strip {
-      background: #092f57;
-      color: #ffffff;
-      border-radius: 8px;
-      padding: 34px;
-      margin-bottom: 58px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      box-shadow: 0 22px 50px rgba(0, 55, 110, 0.18);
-    }
-
-    .details-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 58px;
-    }
-
-    .detail-card {
-      background: #ffffff;
-      border: 1px solid #dfe9f3;
-      border-radius: 8px;
-      padding: 24px;
-      box-shadow: 0 16px 38px rgba(18, 42, 76, 0.08);
-    }
-
-    .detail-card span {
-      color: #0b8aa8;
-      display: block;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .detail-card h3 {
-      color: #172033;
-      font-size: 20px;
-      line-height: 1.25;
-      margin-bottom: 10px;
-    }
-
-    .detail-card p {
-      color: #627086;
-      font-size: 15px;
-      line-height: 1.65;
-    }
-
-    .program-strip h2 {
-      font-size: 30px;
-      line-height: 1.2;
-      margin-bottom: 14px;
-    }
-
-    .program-strip p {
-      color: #d8f5ff;
-      line-height: 1.7;
-    }
-
-    .focus-list {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-
-    .focus-list li {
-      padding: 14px 16px;
-      background: rgba(255, 255, 255, 0.1);
-      border-left: 4px solid #7de2b8;
-      border-radius: 6px;
-      color: #effcff;
-      font-weight: 700;
-    }
-
-    .leadership {
-      margin-bottom: 58px;
-    }
-
-    .role-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .role-card {
+    .person-card {
       background: #ffffff;
       border: 1px solid #dfe9f3;
       border-radius: 8px;
       padding: 22px;
       box-shadow: 0 16px 38px rgba(18, 42, 76, 0.08);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .person-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 48px rgba(18, 42, 76, 0.12);
     }
 
     .role {
-      color: #0056b3;
+      color: #0b8aa8;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 1.6px;
       text-transform: uppercase;
-      margin-bottom: 11px;
+      margin-bottom: 10px;
     }
 
-    .role-card h3 {
+    .person-card a,
+    .committee-list a {
       color: #172033;
-      font-size: 20px;
-      line-height: 1.25;
-      margin-bottom: 8px;
+      text-decoration: none;
+      font-weight: 800;
     }
 
-    .role-card p {
+    .person-card a:hover,
+    .committee-list a:hover {
+      color: #004aad;
+      text-decoration: underline;
+    }
+
+    .person-card p {
       color: #657287;
       line-height: 1.55;
       font-size: 14px;
+      margin-top: 8px;
     }
 
     .committee-panel {
@@ -323,9 +272,6 @@
       padding: 13px 14px;
       background: #f4f8fb;
       border-radius: 6px;
-      color: #23334d;
-      font-weight: 700;
-      font-size: 14px;
       border: 1px solid #e3edf7;
     }
 
@@ -364,21 +310,19 @@
         font-size: 40px;
       }
 
-      .stats,
-      .institution-grid,
-      .details-grid,
-      .program-strip,
-      .role-grid,
-      .committee-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
+      .image-story,
       .section-head {
         display: block;
       }
 
-      .section-head p {
-        margin-top: 12px;
+      .image-stack {
+        margin-top: 20px;
+      }
+
+      .metrics,
+      .people-grid,
+      .committee-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -392,22 +336,15 @@
         font-size: 32px;
       }
 
-      .hero p {
-        font-size: 16px;
-      }
-
-      .stats,
-      .institution-grid,
-      .details-grid,
-      .program-strip,
-      .role-grid,
-      .committee-list {
-        grid-template-columns: 1fr;
-      }
-
       .page {
         width: min(100% - 22px, 1180px);
         padding-top: 42px;
+      }
+
+      .metrics,
+      .people-grid,
+      .committee-list {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -416,7 +353,7 @@
 <body>
   <header>
     <nav>
-      <div class="logo">ICGB 2026</div>
+      <div class="logo">ICGB 2027</div>
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -431,139 +368,120 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="eyebrow">Madurai Kamaraj University</div>
-      <h1>Academic leadership for biological science with global research ambition.</h1>
-      <p>{{ content.about_hero|default:"ICGB 2026 is hosted within the School of Biological Sciences at Madurai Kamaraj University, a NAAC A++ accredited institution with a strong record in advanced biological research, postgraduate training, and scientific collaboration." }}</p>
-
-      <div class="stats">
-        <div class="stat">
-          <strong>A++</strong>
-          <span>NAAC re-accredited university</span>
-        </div>
-        <div class="stat">
-          <strong>50+</strong>
-          <span>Years of higher education impact</span>
-        </div>
-        <div class="stat">
-          <strong>CAS</strong>
-          <span>Advanced studies in functional genomics</span>
-        </div>
-        <div class="stat">
-          <strong>CEGS</strong>
-          <span>Potential for excellence in genomic sciences</span>
-        </div>
-      </div>
+      <h1>ICGB at MKU, built around research, people, and place.</h1>
+      <p>A clean conference page presenting the university environment, academic leadership, and organising team with direct access to public reference links.</p>
     </div>
   </section>
 
   <main class="page">
+    <section class="image-story">
+      <div class="story-copy">
+        <div class="eyebrow">Campus Context</div>
+        <h2>A sharper view of the university setting.</h2>
+        <p>ICGB 2027 is hosted in the academic environment of Madurai Kamaraj University. The page keeps the same blue-white conference identity while giving the campus visuals more presence and reducing brochure-style text.</p>
+      </div>
+
+      <div class="image-stack">
+        <div class="image-card">
+          <img src="C:\Users\Jayalakshmi\OneDrive\Desktop\files\computer science\ins (1).jpg">
+          <span>Research</span>
+        </div>
+        <div class="image-card">
+          <img src="C:\Users\Jayalakshmi\OneDrive\Desktop\webgapp\Images\mainimg2.png" alt="MKU green building">
+          <span>MKU Main Entrance</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metric">
+        <strong>A++</strong>
+        <span>NAAC re-accredited university</span>
+      </div>
+      <div class="metric">
+        <strong>50+</strong>
+        <span>Years of academic contribution</span>
+      </div>
+      <div class="metric">
+        <strong>SBS</strong>
+        <span>School of Biological Sciences</span>
+      </div>
+      <div class="metric">
+        <strong>ICGB</strong>
+        <span>Genomics and biology conference</span>
+      </div>
+    </section>
+
     <section>
       <div class="section-head">
-        <h2>Institutional Strength</h2>
-        <p>{{ content.institution_intro|default:"A concise view of the university, school, and department behind the conference." }}</p>
-      </div>
-
-      <div class="institution-grid">
-        <article class="institution-card">
-          <span>University</span>
-          <h3>Madurai Kamaraj University</h3>
-          <p>{{ content.university_summary|default:"A public university known for postgraduate education, research culture, and academic access for students across social backgrounds." }}</p>
-        </article>
-
-        <article class="institution-card">
-          <span>School</span>
-          <h3>School of Biological Sciences</h3>
-          <p>{{ content.school_summary|default:"An eminent school supported through UGC programmes including DRS, DSA, CAS, CEGS, and NRCBS." }}</p>
-        </article>
-
-        <article class="institution-card">
-          <span>Department</span>
-          <h3>Microbial Technology</h3>
-          <p>{{ content.department_summary|default:"A department focused on research, teaching, mentoring, and advanced biological approaches in microbial and non-microbial systems." }}</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="conference-details">
-      <div class="section-head">
-        <h2>Conference Details</h2>
-        <p>ICGB 2026 is planned as a focused academic gathering for biological science, genomics, biotechnology, microbial technology, and allied research areas.</p>
-      </div>
-
-      <div class="details-grid">
-        <article class="detail-card">
-          <span>Theme</span>
-          <h3>Genomics and Biology</h3>
-          <p>Sessions will highlight current research directions in life sciences, molecular biology, microbial systems, biotechnology, and computational approaches.</p>
-        </article>
-
-        <article class="detail-card">
-          <span>Participants</span>
-          <h3>Students and Faculty</h3>
-          <p>The conference welcomes research scholars, postgraduate students, faculty members, academicians, and industry professionals.</p>
-        </article>
-
-        <article class="detail-card">
-          <span>Format</span>
-          <h3>Talks and Presentations</h3>
-          <p>The program includes keynote lectures, oral presentations, poster sessions, expert interaction, and opportunities for research networking.</p>
-        </article>
-
-        <article class="detail-card">
-          <span>Includes</span>
-          <h3>Kit and Certificate</h3>
-          <p>Registered participants receive conference materials, participation certification, refreshments, lunch, and access to scheduled academic sessions.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="program-strip">
-      <div>
-        <div class="eyebrow">Conference Focus</div>
-        <h2>Scientific exchange with a clear academic purpose.</h2>
-        <p>{{ content.conference_focus|default:"The conference brings together students, research scholars, faculty, academicians, and industry participants for scientific sessions, presentations, and expert interaction." }}</p>
-      </div>
-
-      <ul class="focus-list">
-        <li>Keynote addresses by national and international experts</li>
-        <li>Oral and poster presentation tracks</li>
-        <li>Research-focused student participation</li>
-        <li>Conference kit, certification, refreshments, and lunch</li>
-      </ul>
-    </section>
-
-    <section class="leadership">
-      <div class="section-head">
         <h2>Conference Leadership</h2>
-        <p>Names and responsibilities only, arranged for fast scanning and administrative clarity.</p>
+        <p>Click a name to open its Wikipedia lookup page.</p>
       </div>
 
-      <div class="role-grid">
-        {% for leader in leaders %}
-          <article class="role-card">
-            <div class="role">{{ leader.get_role_display|default:leader.role_label }}</div>
-            <h3>{{ leader.name }}</h3>
-            <p>{{ leader.designation }}</p>
-          </article>
-        {% endfor %}
+      <div class="people-grid">
+        <article class="person-card">
+          <div class="role">Chief Patron</div>
+          <a href="https://en.wikipedia.org/wiki/Special:Search?search=Prof.%20Dr.%20M.%20Ramakrishnan" target="_blank" rel="noopener">Prof. Dr. M. Ramakrishnan</a>
+          <p>Registrar, Madurai Kamaraj University</p>
+        </article>
+
+        <article class="person-card">
+          <div class="role">Patron</div>
+          <a href="https://en.wikipedia.org/wiki/Special:Search?search=Prof.%20Dr.%20S.%20Chandrasekaran" target="_blank" rel="noopener">Prof. Dr. S. Chandrasekaran</a>
+          <p>Chairperson, School of Biological Sciences</p>
+        </article>
+
+        <article class="person-card">
+          <div class="role">Convener</div>
+          <a href="https://en.wikipedia.org/wiki/Special:Search?search=Prof.%20Dr.%20B.%20Mayilvaganan" target="_blank" rel="noopener">Prof. Dr. B. Mayilvaganan</a>
+          <p>Member of Convener Committee</p>
+        </article>
+
+        <article class="person-card">
+          <div class="role">Organising Secretary</div>
+          <a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20M.%20Murugan" target="_blank" rel="noopener">Dr. M. Murugan</a>
+          <p>Department of Microbial Technology</p>
+        </article>
+
+        <article class="person-card">
+          <div class="role">Organising Secretary</div>
+          <a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20N.%20Sivakumar" target="_blank" rel="noopener">Dr. N. Sivakumar</a>
+          <p>Department of Molecular Microbiology</p>
+        </article>
+
+        <article class="person-card">
+          <div class="role">Organising Secretary</div>
+          <a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20U.%20Ramesh" target="_blank" rel="noopener">Dr. U. Ramesh</a>
+          <p>Department of Molecular Biology</p>
+        </article>
       </div>
     </section>
 
     <section class="committee-panel">
       <div class="section-head">
         <h2>Organising Committee</h2>
-        <p>Working members supporting the conference execution.</p>
+        <p>Simple directory view with Wikipedia lookup links.</p>
       </div>
 
       <ul class="committee-list">
-        {% for member in committee_members %}
-          <li>{{ member }}</li>
-        {% endfor %}
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20R.%20Sankar" target="_blank" rel="noopener">Dr. R. Sankar</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20J.%20Rajendhran" target="_blank" rel="noopener">Dr. J. Rajendhran</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20M.%20Rajan" target="_blank" rel="noopener">Dr. M. Rajan</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20S.%20Ramasamy" target="_blank" rel="noopener">Dr. S. Ramasamy</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20T.%20Jebasingh" target="_blank" rel="noopener">Dr. T. Jebasingh</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20M.%20Jayalakshmi" target="_blank" rel="noopener">Dr. M. Jayalakshmi</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20C.%20Amutha" target="_blank" rel="noopener">Dr. C. Amutha</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20P.%20Gopal" target="_blank" rel="noopener">Dr. P. Gopal</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Prof.%20Dr.%20G.%20Kumaresan" target="_blank" rel="noopener">Prof. Dr. G. Kumaresan</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20V.%20Shanmugiah" target="_blank" rel="noopener">Dr. V. Shanmugiah</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Prof.%20K.%20Sivakumar" target="_blank" rel="noopener">Prof. K. Sivakumar</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Special:Search?search=Dr.%20B.%20Ashok%20Kumar" target="_blank" rel="noopener">Dr. B. Ashok Kumar</a></li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 ICGB | Madurai Kamaraj University</p>
+    <p>&copy; 2027 ICGB | Madurai Kamaraj University</p>
   </footer>
 </body>
 </html>

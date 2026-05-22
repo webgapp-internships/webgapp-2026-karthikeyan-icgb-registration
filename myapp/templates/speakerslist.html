@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Speakers | ICGB 2026</title>
+  <title>Speakers | ICGB 2027</title>
 
   <style>
     * {
@@ -386,7 +386,7 @@
 <body>
   <header>
     <nav>
-      <div class="logo">ICGB 2026</div>
+      <div class="logo">ICGB 2027</div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -402,7 +402,7 @@
       <div>
         <div class="eyebrow">Speaker Faculty</div>
         <h1>Scientific voices selected for depth, clarity, and research relevance.</h1>
-        <p>{{ content.speakers_hero|default:"The conference speaker programme brings together faculty and experts across chemistry, biotechnology, crop improvement, pharmaceutical discovery, and microbiome science." }}</p>
+        <p>The conference speaker programme brings together faculty and experts across chemistry, biotechnology, crop improvement, pharmaceutical discovery, and microbiome science.</p>
       </div>
 
       <aside class="featured-panel">
@@ -416,26 +416,69 @@
     <section>
       <div class="section-head">
         <h2>Invited Speakers</h2>
-        <p>{{ content.speakers_intro|default:"A premium speaker directory with institution, designation, and lecture topic at a glance." }}</p>
+        <p>A premium speaker directory with institution, designation, and lecture topic at a glance.</p>
       </div>
 
       <div class="speaker-board">
-        {% for speaker in speakers %}
-          <article class="speaker-card {% if forloop.first or speaker.is_featured %}large{% endif %}">
-            <div class="speaker-mark">{{ speaker.initials }}</div>
-            <div class="speaker-info">
-              <div>
-                <div class="speaker-role">{{ speaker.role }}</div>
-                <h3>{{ speaker.name }}</h3>
-                <p>{{ speaker.institution }}</p>
-              </div>
-              <div class="topic">
-                <span>Lecture Topic</span>
-                <strong>{{ speaker.topic }}</strong>
-              </div>
+        <article class="speaker-card large">
+          <div class="speaker-mark">KR</div>
+          <div class="speaker-info">
+            <div>
+              <div class="speaker-role">Professor & Head</div>
+              <h3>Prof. Dr. K. Muruga Poopathi Raja</h3>
+              <p>Department of Chemistry, School of Physical Sciences, Central University of Kerala</p>
             </div>
-          </article>
-        {% endfor %}
+            <div class="topic">
+              <span>Lecture Topic</span>
+              <strong>Design of Antiviral Peptides to Combat SARS-CoV-2</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-mark">RS</div>
+          <div class="speaker-info">
+            <div>
+              <div class="speaker-role">Professor & Head</div>
+              <h3>Dr. R. Shyam Kumar</h3>
+              <p>Department of Biotechnology, Kamaraj College of Engineering and Technology, Madurai</p>
+            </div>
+            <div class="topic">
+              <span>Lecture Topic</span>
+              <strong>Bioprospecting Lichens: Discovering New Leads for Pharmaceuticals and Beyond</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-mark">SK</div>
+          <div class="speaker-info">
+            <div>
+              <div class="speaker-role">Professor</div>
+              <h3>Dr. S. Kathiresan</h3>
+              <p>Department of Biotechnology, School of Integrative Biology, Central University of Tamil Nadu</p>
+            </div>
+            <div class="topic">
+              <span>Lecture Topic</span>
+              <strong>Marine Microalgae: A Potential Reservoir for Crop Improvement</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-mark">SG</div>
+          <div class="speaker-info">
+            <div>
+              <div class="speaker-role">Former Research Head</div>
+              <h3>Dr. Suresh Govindan</h3>
+              <p>N. Rama Varier Ayurveda Foundation, A VN Ayurveda Formulations Pvt. Ltd., Madurai</p>
+            </div>
+            <div class="topic">
+              <span>Lecture Topic</span>
+              <strong>Gut Microbiome: Health & Disease</strong>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -474,7 +517,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 ICGB | Madurai Kamaraj University</p>
+    <p>&copy; 2027 ICGB | Madurai Kamaraj University</p>
   </footer>
 </body>
 </html>

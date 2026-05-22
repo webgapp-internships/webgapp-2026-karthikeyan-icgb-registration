@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register | ICGB 2026</title>
+  <title>Register | ICGB 2027</title>
 
   <style>
     * {
@@ -633,7 +633,7 @@
 <body>
   <header>
     <nav>
-      <div class="logo">ICGB 2026</div>
+      <div class="logo">ICGB 2027</div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -648,7 +648,7 @@
     <section class="hero">
       <div class="hero-copy">
         <div class="eyebrow">Conference Registration</div>
-        <h1>Reserve your place at ICGB 2026</h1>
+        <h1>Reserve your place at ICGB 2027</h1>
         <p>Complete your registration for the International Conference on Genomics & Biology at Madurai Kamaraj University. Select your category to view the correct fee and accommodation options.</p>
       </div>
 
@@ -680,14 +680,7 @@
         <h2>Participant Details</h2>
         <p>Enter your details carefully. Your profession selection updates the registration fee and, for teachers, enables accommodation booking.</p>
 
-        {% if messages %}
-          {% for message in messages %}
-            <div class="success-panel show">{{ message }}</div>
-          {% endfor %}
-        {% endif %}
-
-        <form id="registrationForm" method="post" action="{% url 'register' %}">
-          {% csrf_token %}
+        <form id="registrationForm">
           <div class="form-grid">
             <div class="field">
               <label for="name">Full Name</label>
@@ -754,7 +747,7 @@
               </div>
 
               <div class="actions">
-                <button type="submit" class="red-carpet-btn">Enter ICGB 2026</button>
+                <button type="submit" class="red-carpet-btn">Enter ICGB 2027</button>
                 <button type="reset" class="ghost-btn">Clear Form</button>
               </div>
             </div>
@@ -854,7 +847,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 ICGB | Madurai Kamaraj University</p>
+    <p>&copy; 2027 ICGB | Madurai Kamaraj University</p>
   </footer>
 
   <script>
@@ -919,6 +912,25 @@
 
     professionInputs.forEach((input) => {
       input.addEventListener("change", updatePricing);
+    });
+
+    registrationForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(registrationForm);
+      const name = formData.get("name");
+      const profession = formData.get("profession");
+      const needsAccommodation = formData.get("accommodation") === "yes";
+
+      successPanel.classList.add("show");
+      successPanel.innerHTML = `<strong>Registration submitted successfully.</strong><br>${name}, your ${profession} registration details have been received.`;
+
+      if (profession === "teacher" && needsAccommodation) {
+        bookingSection.classList.add("show");
+        bookingSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        bookingSection.classList.remove("show");
+      }
     });
 
     registrationForm.addEventListener("reset", () => {

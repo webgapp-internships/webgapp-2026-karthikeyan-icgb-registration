@@ -13,5 +13,4 @@ urlpatterns = [
     path("speakerslist.html", views.speakers, name="speakers_html"),
     path("register/", views.register, name="register"),
     path("register.html", views.register, name="register_html"),
-    path("accommodation/", views.accommodation, name="accommodation"),
 ]
